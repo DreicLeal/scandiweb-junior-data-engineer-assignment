@@ -1,0 +1,1 @@
+# scandiweb-junior-data-engineer-assignment
