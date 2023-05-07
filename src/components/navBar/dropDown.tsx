@@ -1,10 +1,11 @@
+import { StyledDropDown } from "../../styles/DropDownStyle"
 
 export const DropDown =() => {
     return (
-        <ul>
+        <StyledDropDown>
             <li><button>$ USD</button></li>
             <li><button>€ EUR</button></li>
             <li><button>¥ JPY</button></li>
-        </ul>
+        </StyledDropDown>
     )
 }
