@@ -1,10 +1,21 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
+     *{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    input  {
+        outline: transparent;
+    }
+
 #root {
-  max-width: 1280px;
+  width: 100vw;
+  height: 100vh;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0rem;
   text-align: center;
 
   /* Colors */
@@ -23,10 +34,13 @@ export default createGlobalStyle`
 --raleway-700-16: 700 16px "Raleway";
 --raleway-600-30: 600 30px "Raleway";
 --raleway-600-14: 600 14px "Raleway";
+--raleway-600-16: 600 16px "Raleway";
+--raleway-500-18: 500 18px "Raleway";
 --raleway-500-16: 500 16px "Raleway";
 --raleway-400-30: 400 30px "Raleway";
 --raleway-400-24: 400 24px "Raleway";
 --raleway-400-14: 400 14px "Raleway";
+--raleway-400-16: 400 16px "Raleway";
 --raleway-300-16: 300 16px "Raleway";
 --source-400-16: 400 16px "Source-Sans-Pro";
 --source-400-14: 400 14px "Source-Sans-Pro";
