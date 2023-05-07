@@ -1,14 +1,15 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { DropDown } from "./dropDown";
+import { DropDown } from "./DropDown";
+import { CartModal } from "./CartModal";
 
 export const NavBar = () => {
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const navigate = useNavigate();
+
   return (
     <header>
-      <ul>
+      <ul className="sections">
         <li>WOMEN</li>
         <li>MEN</li>
         <li>KIDS</li>
@@ -20,6 +21,7 @@ export const NavBar = () => {
         <button onClick={() => setIsCartOpen(!isCartOpen)}>
           {"../assets/cart.png"}
         </button>
+        {isCartOpen && <CartModal />}
       </div>
     </header>
   );
