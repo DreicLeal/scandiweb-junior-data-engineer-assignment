@@ -76,4 +76,79 @@ export const products: IProduct[] = [
     price: 49.99,
     stock: 5,
   },
+  {
+    id: "4",
+    name: "Watchband",
+    size: ["XS", "S", "M", "L"],
+    color: ["1", "2", "3"],
+    img: {
+      "1": {
+        img1: "./src/assets/database/white-watchBand-1.png",
+        img2: "./src/assets/database/white-watchBand-2.png",
+        img3: "./src/assets/database/white-watchBand-3.png",
+      },
+      "2": {
+        img1: "./src/assets/database/grey-watchBand-1.png",
+        img2: "./src/assets/database/grey-watchBand-2.png",
+        img3: "./src/assets/database/grey-watchBand-3.png",
+      },
+      "3": {
+        img1: "./src/assets/database/blue-watchBand-1.png",
+        img2: "./src/assets/database/blue-watchBand-2.png",
+        img3: "./src/assets/database/blue-watchBand-3.png",
+      },
+    },
+    price: 49.99,
+    stock: 5,
+  },
+  {
+    id: "5",
+    name: "Watchband",
+    size: ["XS", "S", "M", "L"],
+    color: ["1", "2", "3"],
+    img: {
+      "1": {
+        img1: "./src/assets/database/white-watchBand-1.png",
+        img2: "./src/assets/database/white-watchBand-2.png",
+        img3: "./src/assets/database/white-watchBand-3.png",
+      },
+      "2": {
+        img1: "./src/assets/database/grey-watchBand-1.png",
+        img2: "./src/assets/database/grey-watchBand-2.png",
+        img3: "./src/assets/database/grey-watchBand-3.png",
+      },
+      "3": {
+        img1: "./src/assets/database/blue-watchBand-1.png",
+        img2: "./src/assets/database/blue-watchBand-2.png",
+        img3: "./src/assets/database/blue-watchBand-3.png",
+      },
+    },
+    price: 49.99,
+    stock: 5,
+  },
+  {
+    id: "6",
+    name: "Watchband",
+    size: ["XS", "S", "M", "L"],
+    color: ["1", "2", "3"],
+    img: {
+      "1": {
+        img1: "./src/assets/database/white-watchBand-1.png",
+        img2: "./src/assets/database/white-watchBand-2.png",
+        img3: "./src/assets/database/white-watchBand-3.png",
+      },
+      "2": {
+        img1: "./src/assets/database/grey-watchBand-1.png",
+        img2: "./src/assets/database/grey-watchBand-2.png",
+        img3: "./src/assets/database/grey-watchBand-3.png",
+      },
+      "3": {
+        img1: "./src/assets/database/blue-watchBand-1.png",
+        img2: "./src/assets/database/blue-watchBand-2.png",
+        img3: "./src/assets/database/blue-watchBand-3.png",
+      },
+    },
+    price: 49.99,
+    stock: 5,
+  },
 ];

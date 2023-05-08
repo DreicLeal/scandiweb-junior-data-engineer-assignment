@@ -17,7 +17,7 @@ export const NavBar = () => {
     <StyledNav>
       <ul className="sections">
         {sections.map((section) => (
-          <li onClick={() => setSiteSection(section)}>{section}</li>
+          <li key={section} onClick={() => setSiteSection(section)}>{section}</li>
         ))}
       </ul>
       <img src={logo} alt="logo" />
