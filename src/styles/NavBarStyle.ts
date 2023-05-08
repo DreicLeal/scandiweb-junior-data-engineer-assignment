@@ -4,8 +4,7 @@ export const StyledNav = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5rem 0 8rem;
-  width: 100vw;
+  /* padding: 0 5rem 0 8rem; */
   height: 78px;
   margin-bottom: 80px;
 
