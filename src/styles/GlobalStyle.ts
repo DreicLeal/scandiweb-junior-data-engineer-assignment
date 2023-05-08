@@ -42,6 +42,7 @@ export default createGlobalStyle`
 --raleway-400-14: 400 14px "Raleway";
 --raleway-400-16: 400 16px "Raleway";
 --raleway-300-16: 300 16px "Raleway";
+--raleway-300-18: 300 18px "Raleway";
 --source-400-16: 400 16px "Source-Sans-Pro";
 --source-400-14: 400 14px "Source-Sans-Pro";
 }
