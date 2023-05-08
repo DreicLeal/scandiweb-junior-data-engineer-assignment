@@ -10,12 +10,15 @@ export default createGlobalStyle`
     input  {
         outline: transparent;
     }
-
-#root {
+body{
+  padding: 0 5rem;
   width: 100vw;
   height: 100vh;
+}
+
+#root {
   margin: 0 auto;
-  padding: 0rem;
+  /* padding: 0rem 5rem; */
   text-align: center;
 
   /* Colors */
@@ -39,9 +42,11 @@ export default createGlobalStyle`
 --raleway-500-16: 500 16px "Raleway";
 --raleway-400-30: 400 30px "Raleway";
 --raleway-400-24: 400 24px "Raleway";
+--raleway-400-42: 400 42px "Raleway";
 --raleway-400-14: 400 14px "Raleway";
 --raleway-400-16: 400 16px "Raleway";
 --raleway-300-16: 300 16px "Raleway";
+--raleway-300-18: 300 18px "Raleway";
 --source-400-16: 400 16px "Source-Sans-Pro";
 --source-400-14: 400 14px "Source-Sans-Pro";
 }
