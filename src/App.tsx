@@ -8,9 +8,9 @@ export const App = () => {
   return (
     <>
       <GlobalStyle />
-      <NavBar />
       <BrowserRouter>
         <ProductProvider>
+          <NavBar />
           <AllRoutes />
         </ProductProvider>
       </BrowserRouter>

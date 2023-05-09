@@ -29,7 +29,7 @@ body{
   --white: #FFFFFF;
 
   /* Typograph */
---roboto-cond-700-18: 700 18px "Roboto-Condensed";
+--roboto-cond-700-18: 700 18px "Roboto Condensed";
 --roboto-700-18: 700 18px "Roboto";
 --roboto-500-16: 500 16px "Roboto";
 --roboto-400-16: 400 16px "Roboto";
