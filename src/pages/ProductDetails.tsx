@@ -58,10 +58,10 @@ console.log(choosedColor)
             {productPage?.color.map((color, i) => (
               <li
                 id={choosedColor === i ? "pickedColor" : ""}
+                className={productPage.color[i]}
                 key={i}
                 onClick={() => pickedColor(i)}
               >
-                {color}
               </li>
             ))}
           </ul>

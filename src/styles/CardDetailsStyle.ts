@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledCardDetail = styled.div`
-display: flex;
+  display: flex;
   .imgsContainer {
     display: flex;
     gap: 1.5rem;
@@ -17,48 +17,57 @@ display: flex;
       }
     }
   }
-  .sizeContainer{
-    ul{
+  .sizeContainer {
+    ul {
       display: flex;
-      gap: .5rem;
+      gap: 0.5rem;
       width: fit-content;
-      li{
+      li {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 63px;
         height: 45px;
-        border:1px solid var(--black);
-        transition: .3s;
-        &:hover{
+        border: 1px solid var(--black);
+        transition: 0.3s;
+        &:hover {
           background-color: var(--black);
           color: var(--white);
           cursor: pointer;
         }
       }
-      #pickedSize{
+      #pickedSize {
         background-color: var(--black);
         color: var(--white);
       }
     }
   }
-  .colorContainer{
-    ul{
+  .colorContainer {
+    ul {
       display: flex;
-      gap: .5rem;
+      gap: 0.5rem;
       width: fit-content;
-      li{
+      li {
         width: 32px;
         height: 32px;
-        border: 1px solid transparent;
-        transition: .3s;
-        &:hover{
+        border: 1px solid var(--grey1);
+        transition: 0.3s;
+        &:hover {
           border: 1px solid var(--green);
           cursor: pointer;
         }
       }
-      #pickedColor{
+      #pickedColor {
         border: 1px solid var(--green);
+      }
+      .white {
+        background-color: white;
+      }
+      .black {
+        background-color: black;
+      }
+      .red {
+        background-color: red;
       }
     }
   }
