@@ -1,11 +1,26 @@
-import { StyledDropDown } from "../../styles/DropDownStyle"
+import { useContext } from "react";
+import { StyledDropDown } from "../../styles/DropDownStyle";
+import { ProductContext } from "../../context/ProductContext";
 
-export const DropDown =() => {
-    return (
-        <StyledDropDown>
-            <li><button>$ USD</button></li>
-            <li><button>€ EUR</button></li>
-            <li><button>¥ JPY</button></li>
-        </StyledDropDown>
-    )
-}
+
+export const DropDown = () => {
+  const { setCurrency,  setIsMenuOpen } = useContext(ProductContext);
+
+  const changeCurrency = (param: string) => {
+    setCurrency(param);
+    setIsMenuOpen(false);
+  };
+  return (
+    <StyledDropDown>
+      <li onClick={() => changeCurrency("$")}>
+        <button>$ USD</button>
+      </li>
+      <li onClick={() => changeCurrency("€")}>
+        <button>€ EUR</button>
+      </li>
+      <li onClick={() => changeCurrency("¥")}>
+        <button>¥ JPY</button>
+      </li>
+    </StyledDropDown>
+  );
+};

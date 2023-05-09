@@ -10,7 +10,7 @@ export const ProductCard = (product: IProduct) => {
   const navigate = useNavigate()
   return (
     <StyledCardHome key={product.id} onClick={()=>navigate(`/product/${product.id}`)}>
-      <img src={product.img["1"].img1} alt={product.name} />
+      <img src={product.img["1"][0]} alt={product.name} />
       <img src={greenIcon} className="addCart" alt="" />
       <div className="productCardInfo">
       <p>{product.name}</p>
