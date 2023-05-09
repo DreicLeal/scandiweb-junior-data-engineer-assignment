@@ -6,24 +6,31 @@ import { ProductContext } from "../context/ProductContext";
 
 export const ProductDetails = () => {
   const { id } = useParams();
-  const { choosedSize, setChoosedSize, choosedColor, setChoosedColor } =
-    useContext(ProductContext);
+  const {
+    choosedSize,
+    setChoosedSize,
+    choosedColor,
+    setChoosedColor,
+    currency,
+    exchange
+  } = useContext(ProductContext);
+  const [imgIndex, setImgIndex] = useState<number>(0);
   const productPage = products.find((product) => product.id == id);
 
-  useEffect(()=> {
-    setChoosedColor(0)
-  },[])
-  
-  const [imgIndex, setImgIndex] = useState<number>(0);
-console.log(choosedColor)
+  useEffect(() => {
+    setChoosedColor(0);
+  }, []);
+
   const pickedSize = (i: number) => {
     const size = productPage?.size[i];
     setChoosedSize(size!);
   };
+
   const pickedColor = (i: number) => {
     const color = i;
     setChoosedColor(color);
   };
+
   return (
     <StyledCardDetail>
       <div className="imgsContainer">
@@ -34,7 +41,10 @@ console.log(choosedColor)
             </li>
           ))}
         </ul>
-        <img src={`../${productPage?.img[`${String(choosedColor)}`][imgIndex]}`} alt="" />
+        <img
+          src={`../${productPage?.img[`${String(choosedColor)}`][imgIndex]}`}
+          alt=""
+        />
       </div>
       <div className="productInfo">
         <h3>{productPage?.name}</h3>
@@ -61,11 +71,15 @@ console.log(choosedColor)
                 className={productPage.color[i]}
                 key={i}
                 onClick={() => pickedColor(i)}
-              >
-              </li>
+              ></li>
             ))}
           </ul>
         </div>
+        <p>PRICE:</p>
+        <p>
+          {currency}
+          {(productPage!.price*exchange()).toFixed(2)}
+        </p>
       </div>
     </StyledCardDetail>
   );

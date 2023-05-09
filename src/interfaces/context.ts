@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { IProduct } from "../database/databaseInterface";
 
 export interface IProductContext {
+  exchange: () => number;
   choosedColor:number| undefined;
   setChoosedColor: React.Dispatch<React.SetStateAction<number| undefined>>;
   choosedSize:string|null;

@@ -16,6 +16,14 @@ export const NavBar = () => {
   const { setSiteSection, currency, isMenuOpen, setIsMenuOpen} = useContext(ProductContext);
   const navigate = useNavigate()
 
+  const menu = () => {
+    setIsMenuOpen(!isMenuOpen)
+    setIsCartOpen(false)
+  }
+  const cartModal = () => {
+    setIsMenuOpen(false)
+    setIsCartOpen(!isCartOpen)
+  }
   return (
     <StyledNav>
       <ul className="sections">
@@ -25,9 +33,9 @@ export const NavBar = () => {
       </ul>
       <img src={logo} alt="logo" onClick={()=> navigate("/")} />
       <div className="buttons">
-        <button onClick={() => setIsMenuOpen(!isMenuOpen)}>{currency}</button>
+        <button onClick={() => menu()}>{currency}</button>
         {isMenuOpen && <DropDown />}
-        <button onClick={() => setIsCartOpen(!isCartOpen)}>
+        <button onClick={() => cartModal()}>
           <img src={cart} alt="carrinho" />
         </button>
         {isCartOpen && <CartModal />}

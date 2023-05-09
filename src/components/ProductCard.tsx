@@ -6,7 +6,7 @@ import greenIcon from "../assets/greenIcon.svg";
 import { useNavigate } from "react-router-dom";
 
 export const ProductCard = (product: IProduct) => {
-  const { currency } = useContext(ProductContext);
+  const { currency, exchange } = useContext(ProductContext);
   const navigate = useNavigate()
   return (
     <StyledCardHome key={product.id} onClick={()=>navigate(`/product/${product.id}`)}>
@@ -15,7 +15,7 @@ export const ProductCard = (product: IProduct) => {
       <div className="productCardInfo">
       <p>{product.name}</p>
       <p>
-        {currency}{product.price}
+        {currency}{(product.price*exchange()).toFixed(2)}
       </p>
       </div>
     </StyledCardHome>
