@@ -11,7 +11,7 @@ export const ProductProvider = ({ children }: IProductContextProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [choosedSize, setChoosedSize] = useState<string | null>(null);
   const [choosedColor, setChoosedColor] = useState<number | undefined>(0);
-
+  
   const exchange = () => {
     let multiplier: number;
     if (currency == "€") {

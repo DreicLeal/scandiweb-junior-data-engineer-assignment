@@ -13,8 +13,9 @@ const hoverType: any = {
   },
 };
 
-export const StyledButton: any = styled.button`
+export const StyledButton = styled.button`
   transition: 0.5s;
+  cursor: pointer;
 
   ${({ background }: IButton) => {
     return css`

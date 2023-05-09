@@ -2,6 +2,13 @@ import styled from "styled-components";
 
 export const StyledCardDetail = styled.div`
   display: flex;
+  gap: 5rem;
+  h3{
+    font: var(--raleway-600-30);
+  }
+  p{
+    font: var(--roboto-cond-700-18);
+  }
   .imgsContainer {
     display: flex;
     gap: 1.5rem;
@@ -17,6 +24,12 @@ export const StyledCardDetail = styled.div`
       }
     }
   }
+  .productInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+
   .sizeContainer {
     ul {
       display: flex;
@@ -71,4 +84,16 @@ export const StyledCardDetail = styled.div`
       }
     }
   }
+  .price{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    p:nth-child(2){
+      font: var(--raleway-700-24)
+    }
+  }
+  button{
+    margin-bottom: 2rem;
+  }
+}
 `;

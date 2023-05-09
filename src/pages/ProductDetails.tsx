@@ -3,6 +3,7 @@ import { products } from "../database/database";
 import { StyledCardDetail } from "../styles/CardDetailsStyle";
 import { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../context/ProductContext";
+import { Button } from "../components/Buttons";
 
 export const ProductDetails = () => {
   const { id } = useParams();
@@ -12,7 +13,7 @@ export const ProductDetails = () => {
     choosedColor,
     setChoosedColor,
     currency,
-    exchange
+    exchange,
   } = useContext(ProductContext);
   const [imgIndex, setImgIndex] = useState<number>(0);
   const productPage = products.find((product) => product.id == id);
@@ -75,11 +76,21 @@ export const ProductDetails = () => {
             ))}
           </ul>
         </div>
-        <p>PRICE:</p>
-        <p>
-          {currency}
-          {(productPage!.price*exchange()).toFixed(2)}
-        </p>
+        <div className="price">
+          <p>PRICE:</p>
+          <p>
+            {currency}
+            {(productPage!.price * exchange()).toFixed(2)}
+          </p>
+        </div>
+        <Button
+          background="green"
+          text="ADD TO CART"
+          size="2"
+          color="white"
+          border="none"
+          hover="hover1"
+        />
       </div>
     </StyledCardDetail>
   );
