@@ -31,6 +31,7 @@ body{
   /* Typograph */
 --roboto-cond-700-18: 700 18px "Roboto Condensed";
 --roboto-700-18: 700 18px "Roboto";
+--roboto-700-14: 700 14px "Roboto";
 --roboto-500-16: 500 16px "Roboto";
 --roboto-400-16: 400 16px "Roboto";
 --raleway-700-24: 700 24px "Raleway";
