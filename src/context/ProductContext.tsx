@@ -6,12 +6,12 @@ export const ProductContext = createContext({} as IProductContext);
 
 export const ProductProvider = ({ children }: IProductContextProps) => {
   const [currency, setCurrency] = useState<string>("$");
-  const [cart, setCart] = useState<IProduct[] | null>(null);
+  const [cart, setCart] = useState<IProduct[]>([] as IProduct[]);
   const [siteSection, setSiteSection] = useState<string>("WOMEN");
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [choosedSize, setChoosedSize] = useState<string | null>(null);
   const [choosedColor, setChoosedColor] = useState<number | undefined>(0);
-  
+
   const exchange = () => {
     let multiplier: number;
     if (currency == "€") {
@@ -24,9 +24,14 @@ export const ProductProvider = ({ children }: IProductContextProps) => {
     return multiplier;
   };
 
+  const addToCart = (pickedProduct:IProduct) =>{
+    setCart([...cart, pickedProduct])
+  }
+
   return (
     <ProductContext.Provider
       value={{
+        addToCart,
         exchange,
         choosedColor,
         setChoosedColor,

@@ -3,7 +3,7 @@ import { DropDown } from "./DropDown";
 import { CartModal } from "./CartModal";
 import { StyledNav } from "../../styles/NavBarStyle";
 import logo from "../../assets/logo.svg";
-import cart from "../../assets/cart.svg";
+import cartIcon from "../../assets/cartIcon.svg";
 import { ProductContext } from "../../context/ProductContext";
 import { useNavigate } from "react-router-dom";
 
@@ -13,7 +13,7 @@ export const NavBar = () => {
   
   const sections = ["WOMEN", "MEN", "KIDS"];
 
-  const { setSiteSection, currency, isMenuOpen, setIsMenuOpen} = useContext(ProductContext);
+  const { setSiteSection, currency, isMenuOpen, setIsMenuOpen, cart} = useContext(ProductContext);
   const navigate = useNavigate()
 
   const menu = () => {
@@ -36,7 +36,8 @@ export const NavBar = () => {
         <button onClick={() => menu()}>{currency}</button>
         {isMenuOpen && <DropDown />}
         <button onClick={() => cartModal()}>
-          <img src={cart} alt="carrinho" />
+          {cart.length > 0 && <div>{ cart.length}</div>}
+          <img src={cartIcon} alt="carrinho" />
         </button>
         {isCartOpen && <CartModal />}
       </div>

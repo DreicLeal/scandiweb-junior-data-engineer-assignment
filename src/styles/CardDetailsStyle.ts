@@ -23,6 +23,10 @@ export const StyledCardDetail = styled.div`
         }
       }
     }
+    .mainImage{
+    width: 450px;
+    height: 420px;
+}
   }
   .productInfo{
     display: flex;

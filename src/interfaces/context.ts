@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { IProduct } from "../database/databaseInterface";
 
 export interface IProductContext {
+  addToCart: (pickedProduct: IProduct) => void;
   exchange: () => number;
   choosedColor:number| undefined;
   setChoosedColor: React.Dispatch<React.SetStateAction<number| undefined>>;
@@ -13,8 +14,8 @@ export interface IProductContext {
   setSiteSection: React.Dispatch<React.SetStateAction<string>>;
   currency: string;
   setCurrency: React.Dispatch<React.SetStateAction<string>>;
-  cart: IProduct[] | null;
-  setCart: React.Dispatch<React.SetStateAction<IProduct[] | null>>;
+  cart: IProduct[];
+  setCart: React.Dispatch<React.SetStateAction<IProduct[]>>;
 }
 
 export interface IProductContextProps {

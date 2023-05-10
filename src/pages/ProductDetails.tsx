@@ -4,6 +4,7 @@ import { StyledCardDetail } from "../styles/CardDetailsStyle";
 import { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../context/ProductContext";
 import { Button } from "../components/Buttons";
+import { IProduct } from "../database/databaseInterface";
 
 export const ProductDetails = () => {
   const { id } = useParams();
@@ -14,11 +15,13 @@ export const ProductDetails = () => {
     setChoosedColor,
     currency,
     exchange,
+    addToCart
   } = useContext(ProductContext);
   const [imgIndex, setImgIndex] = useState<number>(0);
   const productPage = products.find((product) => product.id == id);
 
   useEffect(() => {
+    setChoosedSize(productPage!.size[1]);
     setChoosedColor(0);
   }, []);
 
@@ -42,7 +45,7 @@ export const ProductDetails = () => {
             </li>
           ))}
         </ul>
-        <img
+        <img className="mainImage"
           src={`../${productPage?.img[`${String(choosedColor)}`][imgIndex]}`}
           alt=""
         />
@@ -84,6 +87,7 @@ export const ProductDetails = () => {
           </p>
         </div>
         <Button
+          onClick={() => addToCart(productPage!)}
           background="green"
           text="ADD TO CART"
           size="2"

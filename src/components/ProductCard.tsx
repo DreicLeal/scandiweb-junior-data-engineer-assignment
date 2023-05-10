@@ -6,17 +6,19 @@ import greenIcon from "../assets/greenIcon.svg";
 import { useNavigate } from "react-router-dom";
 
 export const ProductCard = (product: IProduct) => {
-  const { currency, exchange } = useContext(ProductContext);
+  const { currency, exchange, addToCart } = useContext(ProductContext);
   const navigate = useNavigate()
   return (
-    <StyledCardHome key={product.id} onClick={()=>navigate(`/product/${product.id}`)}>
+    <StyledCardHome key={product.id}>
+      <img src={greenIcon} onClick={()=>addToCart(product)} className="addCart" alt="" />
+      <div onClick={()=>navigate(`/product/${product.id}`)}>
       <img src={product.img["1"][0]} alt={product.name} />
-      <img src={greenIcon} className="addCart" alt="" />
       <div className="productCardInfo">
       <p>{product.name}</p>
       <p>
         {currency}{(product.price*exchange()).toFixed(2)}
       </p>
+      </div>
       </div>
     </StyledCardHome>
   );
