@@ -86,6 +86,9 @@ export const StyledCardDetail = styled.div`
       .red {
         background-color: red;
       }
+      .green {
+        background-color: green;
+      }
     }
   }
   .price{

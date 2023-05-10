@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 export const StyledProductsContainer = styled.div`
-/* width: 84%; */
-height: 100vh;
-margin: 0 auto;
+height: fit-content;
 h2{
     text-align: start;
     margin-bottom: 80px;

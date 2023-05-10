@@ -1,0 +1,48 @@
+import styled from "styled-components";
+
+export const StyledCartModal = styled.div`
+  backdrop-filter: blur(2px);
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(57, 55, 72, 0.22);
+  .cartContainer {
+    overflow-y: auto;
+    width: fit-content;
+    height: fit-content;
+    max-width: 328px;
+    max-height: 550px;
+    padding: 1rem;
+    background-color: var(--white);
+    position: absolute;
+    right: 5%;
+    h2 {
+      margin-bottom: 2rem;
+      text-align: justify;
+      font: var(--raleway-700-16);
+      span {
+        font: var(--raleway-500-16);
+      }
+    }
+    .total {
+      display: flex;
+      justify-content: space-between;
+      margin: 1.5rem 0;
+      p:nth-child(1) {
+        font: var(--roboto-500-16);
+      }
+      p:nth-child(2) {
+        font: var(--raleway-700-16);
+      }
+    }
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      button {
+        font: var(--raleway-600-14);
+      }
+    }
+  }
+`;

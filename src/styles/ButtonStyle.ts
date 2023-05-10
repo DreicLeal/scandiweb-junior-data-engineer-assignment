@@ -4,6 +4,7 @@ import { IButton } from "../interfaces/button";
 const hoverType: any = {
   hover1: {
     background: "var(--black)",
+    color: "var(--white)",
   },
   hover2: {
     background: "var(--grey2)",
@@ -13,16 +14,16 @@ const hoverType: any = {
   },
 };
 
-export const StyledButton = styled.button`
+export const StyledButton = styled.button<IButton>`
   transition: 0.5s;
   cursor: pointer;
 
-  ${({ background }: IButton) => {
+  ${({ background }) => {
     return css`
       background-color: var(--${background});
     `;
   }}
-  ${({ hover }: IButton) => {
+  ${({ hover }) => {
     return css`
       &:hover {
         ${hoverType[`${hover}`]}
@@ -46,7 +47,7 @@ export const StyledButton = styled.button`
     }
   }}
 
-  ${({ size }: IButton) => {
+  ${({ size }) => {
     switch (size) {
       case "1":
         return css`

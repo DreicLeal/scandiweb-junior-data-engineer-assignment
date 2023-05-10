@@ -5,7 +5,6 @@ export const StyledNav = styled.header`
   justify-content: space-between;
   align-items: center;
   height: 78px;
-  margin-bottom: 80px;
 
   .sections {
     display: flex;
