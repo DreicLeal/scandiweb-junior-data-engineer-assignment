@@ -12,7 +12,8 @@ export const StyledCartModal = styled.div`
     overflow-y: auto;
     width: fit-content;
     height: fit-content;
-    max-width: 328px;
+    width: 328px;
+    min-height: 350px;
     max-height: 550px;
     padding: 1rem;
     background-color: var(--white);
