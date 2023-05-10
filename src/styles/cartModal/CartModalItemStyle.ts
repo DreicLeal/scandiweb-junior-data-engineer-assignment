@@ -26,6 +26,10 @@ export const StyledCartModalItem = styled.li`
     font: var(--raleway-400-14);
   }
   .colorContainer {
+    ul {
+      display: flex;
+      gap: 5px;
+    }
     li {
       width: 32px;
       height: 32px;

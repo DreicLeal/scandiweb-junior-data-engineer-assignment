@@ -3,6 +3,7 @@ import { StyledCartModal } from "../../styles/cartModal/CartModalStyle";
 import { Button } from "../Buttons";
 import { ProductContext } from "../../context/ProductContext";
 import { ProductCardModal } from "./ProductCardModal";
+import { useNavigate } from "react-router-dom";
 
 export const CartModal = () => {
   const { currency, cartValue, cartQuantity, setIsCartOpen, cart } =
@@ -12,6 +13,9 @@ export const CartModal = () => {
       setIsCartOpen(false);
     }
   };
+
+  const navigate = useNavigate();
+
   return (
     <StyledCartModal onClick={test}>
       <div className="cartContainer">
@@ -40,7 +44,8 @@ export const CartModal = () => {
                 size="1"
                 color=""
                 border="1px solid"
-                hover=""
+                hover="hover1"
+                onClick={() => navigate("/cart")}
               />
               <Button
                 background="green"
@@ -48,7 +53,7 @@ export const CartModal = () => {
                 size="1"
                 color="white"
                 border="none"
-                hover="1"
+                hover="hover1"
               />
             </div>
           </>

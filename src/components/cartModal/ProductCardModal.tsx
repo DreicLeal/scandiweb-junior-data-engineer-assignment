@@ -74,7 +74,7 @@ export const ProductCardModal = (product: IProduct) => {
             onClick={() => removeFromCart(product)}
           />
         </div>
-        <img src={product.img["0"][0]} alt="" />
+        <img src={product.img[`${String(choosedColor)}`][0]} alt="" />
       </div>
     </StyledCartModalItem>
   );
