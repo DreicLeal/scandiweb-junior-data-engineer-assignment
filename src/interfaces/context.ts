@@ -2,6 +2,8 @@ import { ReactNode } from "react";
 import { IProduct } from "../database/databaseInterface";
 
 export interface IProductContext {
+  cartQuantity: number;
+  cartValue: number;
   addToCart: (pickedProduct: IProduct) => void;
   exchange: () => number;
   choosedColor:number| undefined;

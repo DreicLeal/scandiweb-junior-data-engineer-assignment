@@ -4,7 +4,6 @@ import { StyledCardDetail } from "../styles/CardDetailsStyle";
 import { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../context/ProductContext";
 import { Button } from "../components/Buttons";
-import { IProduct } from "../database/databaseInterface";
 
 export const ProductDetails = () => {
   const { id } = useParams();

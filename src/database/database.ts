@@ -24,6 +24,7 @@ export const products: IProduct[] = [
       ],
     },
     price: 49.99,
+    quantity:1,
     stock: 5,
   },
   {
@@ -49,6 +50,7 @@ export const products: IProduct[] = [
       ],
     },
     price: 49.99,
+    quantity:1,
     stock: 5,
   },
   {
@@ -74,6 +76,7 @@ export const products: IProduct[] = [
       ],
     },
     price: 49.99,
+    quantity:1,
     stock: 5,
   },
   {
@@ -99,6 +102,7 @@ export const products: IProduct[] = [
       ],
     },
     price: 49.99,
+    quantity:1,
     stock: 5,
   },
   {
@@ -124,6 +128,7 @@ export const products: IProduct[] = [
       ],
     },
     price: 49.99,
+    quantity:1,
     stock: 5,
   },
   {
@@ -149,6 +154,7 @@ export const products: IProduct[] = [
       ],
     },
     price: 49.99,
+    quantity:1,
     stock: 5,
   },
 ];

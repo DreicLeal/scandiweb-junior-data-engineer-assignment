@@ -7,5 +7,6 @@ export interface IProduct {
     [key: string]: string[];
   };
   price: number;
+  quantity:number;
   stock?: number;
 }
