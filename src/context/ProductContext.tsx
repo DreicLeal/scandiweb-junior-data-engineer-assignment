@@ -9,11 +9,12 @@ export const ProductProvider = ({ children }: IProductContextProps) => {
   const [cart, setCart] = useState<IProduct[]>([] as IProduct[]);
   const [siteSection, setSiteSection] = useState<string>("WOMEN");
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const [choosedSize, setChoosedSize] = useState<string | null>(null);
   const [choosedColor, setChoosedColor] = useState<number | undefined>(0);
   const [cartQuantity, setCartQuantity] = useState<number>(0);
   const [cartValue, setCartValue] = useState<number>(0);
-  
+
   const exchange = () => {
     let multiplier: number;
     if (currency == "€") {
@@ -39,19 +40,36 @@ export const ProductProvider = ({ children }: IProductContextProps) => {
     }
   };
 
+  const removeFromCart = (pickedProduct: IProduct) => {
+    const productToDecrease = cart.find(
+      (product) => product.id == pickedProduct.id
+    );
+    if(productToDecrease!.quantity > 1){
+      productToDecrease!.quantity -=1;
+      const remainProducts = cart.filter(product => product.id != productToDecrease!.id)
+      setCart([...remainProducts!, productToDecrease!]) 
+    } else {
+      const remainProducts = cart.filter(product => product.id != productToDecrease!.id)
+      setCart([...remainProducts!])
+    }
+  };
+
   useEffect(() => {
     const totalQuantity = cart.reduce((acc, act) => acc + act.quantity, 0);
-    setCartQuantity(totalQuantity)
+    setCartQuantity(totalQuantity);
     const totalValue = cart.reduce(
       (acc, act) => acc + act.quantity * act.price * exchange(),
       0
     );
-    setCartValue(totalValue)
+    setCartValue(totalValue);
   }, [cart, currency]);
 
   return (
     <ProductContext.Provider
       value={{
+        removeFromCart,
+        isCartOpen,
+        setIsCartOpen,
         cartQuantity,
         cartValue,
         addToCart,
