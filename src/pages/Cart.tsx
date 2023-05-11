@@ -1,33 +1,39 @@
 import { useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
 import { ProductCardModal } from "../components/cartModal/ProductCardModal";
+import { StyledCart } from "../styles/CartStyle";
+import { Button } from "../components/Buttons";
 
 export const Cart = () => {
-  const { currency, cartValue, cartQuantity, setIsCartOpen, cart } =
+  const { currency, cartValue, cartQuantity, cart } =
     useContext(ProductContext);
   return (
-    <div className="cartContainer">
+    <StyledCart>
       <h2>CART</h2>
       <ul className="cartItems">
         {cart.map((product) => ProductCardModal(product))}
       </ul>
       <div className="summary">
-        <div className="tax ">
-          <p>Tax 21%:</p>
-          <p>{currency}{(cartValue*.21).toFixed(2)}</p>
-        </div>
-        <div className="quantity">
-          <p>Quantity:</p>
-          <p>{cartQuantity}</p>
-        </div>
-        <div className="totalValue">
-          <p>Total:</p>
-          <p>
+        <div className="flex">
+          <p className="title">Tax 21%:</p>
+          <p className="info">
             {currency}
+            {(cartValue * 0.21).toFixed(2)}
+          </p>
+        </div>
+        <div className="flex">
+          <p className="title">Quantity:</p>
+          <p className="info">{cartQuantity}</p>
+        </div>
+        <div className="flex">
+          <p className="title">Total:</p>
+          <p className="info"> 
+            { currency}
             {cartValue.toFixed(2)}
           </p>
         </div>
+        <Button size="2"text="ORDER" background="green" color="white" border="none" hover="hover1"/>
       </div>
-    </div>
+    </StyledCart>
   );
 };

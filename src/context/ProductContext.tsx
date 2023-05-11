@@ -1,12 +1,14 @@
 import { createContext, useEffect, useState } from "react";
 import { IProduct } from "../database/databaseInterface";
-import { ChoosedColorsState, IProductContext, IProductContextProps } from "../interfaces/context";
+import {
+  ChoosedColorsState,
+  IProductContext,
+  IProductContextProps,
+} from "../interfaces/context";
 
 export const ProductContext = createContext({} as IProductContext);
 
 export const ProductProvider = ({ children }: IProductContextProps) => {
-
-
   const [currency, setCurrency] = useState<string>("$");
   const [cart, setCart] = useState<IProduct[]>([] as IProduct[]);
   const [siteSection, setSiteSection] = useState<string>("WOMEN");
@@ -46,13 +48,17 @@ export const ProductProvider = ({ children }: IProductContextProps) => {
     const productToDecrease = cart.find(
       (product) => product.id == pickedProduct.id
     );
-    if(productToDecrease!.quantity > 1){
-      productToDecrease!.quantity -=1;
-      const remainProducts = cart.filter(product => product.id != productToDecrease!.id)
-      setCart([...remainProducts!, productToDecrease!]) 
+    if (productToDecrease!.quantity > 1) {
+      productToDecrease!.quantity -= 1;
+      const remainProducts = cart.filter(
+        (product) => product.id != productToDecrease!.id
+      );
+      setCart([...remainProducts!, productToDecrease!]);
     } else {
-      const remainProducts = cart.filter(product => product.id != productToDecrease!.id)
-      setCart([...remainProducts!])
+      const remainProducts = cart.filter(
+        (product) => product.id != productToDecrease!.id
+      );
+      setCart([...remainProducts!]);
     }
   };
 
@@ -65,9 +71,7 @@ export const ProductProvider = ({ children }: IProductContextProps) => {
   };
 
   const productColorIndex = (productId: number) => {
-    return choosedColor[productId] !== undefined
-    ? choosedColor[productId]
-    : 0;
+    return choosedColor[productId] !== undefined ? choosedColor[productId] : 0;
   };
 
   useEffect(() => {
@@ -79,6 +83,10 @@ export const ProductProvider = ({ children }: IProductContextProps) => {
     );
     setCartValue(totalValue);
   }, [cart, currency]);
+
+  const order = () => {
+    return null;
+  };
 
   return (
     <ProductContext.Provider

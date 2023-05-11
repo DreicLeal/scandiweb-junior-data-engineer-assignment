@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { IProduct } from "../../database/databaseInterface";
 import { ProductContext } from "../../context/ProductContext";
 import { Button } from "../Buttons";
 import { StyledCartModalItem } from "../../styles/cartModal/CartModalItemStyle";
-
+import plus from "../../assets/plus.svg";
+import minus from "../../assets/minus.svg";
 export const ProductCardModal = (product: IProduct) => {
   const {
     currency,
@@ -11,24 +12,39 @@ export const ProductCardModal = (product: IProduct) => {
     addToCart,
     removeFromCart,
     productColorIndex,
-    pickedColor
+    pickedColor,
   } = useContext(ProductContext);
+  const cartPage = window.location.pathname === "/cart";
+  const [imgIndex, setImgIndex] = useState(0);
+  const nextImg = () => {
+    if (
+      imgIndex <
+      product.img[`${String(productColorIndex(product.id))}`].length - 1
+    ) {
+      setImgIndex(imgIndex + 1);
+    }
+  };
 
+  const previousImg = () => {
+    if (imgIndex > 0) {
+      setImgIndex(imgIndex - 1);
+    }
+  };
   return (
     <StyledCartModalItem key={product.id}>
-      <div className="infoContainer">
+      <div className={`infoContainer ${cartPage && "cartPage"}`}>
         <h3>{product.name}</h3>
         <p className="price">
           {currency}
           {(product.price * exchange()).toFixed(2)}
         </p>
         <div className="sizeContainer">
-          <p>Size:</p>
+          <p>{cartPage ? "SIZE:" : "Size:"}</p>
           <div>
             {product.size.map((size) => (
               <Button
                 text={size}
-                size="6"
+                size={cartPage ? "3" : "6"}
                 border="1px solid black"
                 background="none"
                 hover="hover1"
@@ -37,7 +53,7 @@ export const ProductCardModal = (product: IProduct) => {
           </div>
         </div>
         <div className="colorContainer">
-          <p>Color:</p>
+          <p>{cartPage ? "COLOR:" : "Color:"}</p>
           <ul>
             {product?.color.map((color, i) => (
               <li
@@ -53,7 +69,7 @@ export const ProductCardModal = (product: IProduct) => {
       <div className="imgContainer">
         <div className="quantity">
           <Button
-            size="6"
+            size={cartPage ? "5" : "6"}
             border="1px solid black"
             hover="hover1"
             background="none"
@@ -62,7 +78,7 @@ export const ProductCardModal = (product: IProduct) => {
           />
           <p>{product.quantity}</p>
           <Button
-            size="6"
+            size={cartPage ? "5" : "6"}
             border="1px solid black"
             hover="hover1"
             background="none"
@@ -70,7 +86,21 @@ export const ProductCardModal = (product: IProduct) => {
             onClick={() => removeFromCart(product)}
           />
         </div>
-        <img src={product.img[`${String(productColorIndex(product.id))}`][0]} alt="" />
+        <div className="imgCarrousselContainer">
+          {cartPage && (
+            <div className="imgButtons">
+              <img src={minus} onClick={() => previousImg()} />
+              <img src={plus} onClick={() => nextImg()} />
+            </div>
+          )}
+          <img
+            className={`currentImg ${cartPage && "cartPageImg"}`}
+            src={
+              product.img[`${String(productColorIndex(product.id))}`][imgIndex]
+            }
+            alt={product.name}
+          />
+        </div>
       </div>
     </StyledCartModalItem>
   );

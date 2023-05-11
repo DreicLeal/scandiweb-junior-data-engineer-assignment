@@ -27,6 +27,7 @@ body{
   --grey2: #EEEEEE;
   --black: #1D1F22;
   --white: #FFFFFF;
+  --opacityGrey: rgba(0, 0, 0, 0.73);
 
   /* Typograph */
 --roboto-cond-700-18: 700 18px "Roboto Condensed";
@@ -34,6 +35,7 @@ body{
 --roboto-700-14: 700 14px "Roboto";
 --roboto-500-16: 500 16px "Roboto";
 --roboto-400-16: 400 16px "Roboto";
+--raleway-700-32: 700 32px "Raleway";
 --raleway-700-24: 700 24px "Raleway";
 --raleway-700-16: 700 16px "Raleway";
 --raleway-600-30: 600 30px "Raleway";

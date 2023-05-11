@@ -8,16 +8,21 @@ import { useNavigate } from "react-router-dom";
 export const CartModal = () => {
   const { currency, cartValue, cartQuantity, setIsCartOpen, cart } =
     useContext(ProductContext);
-  const test = (event: React.MouseEvent<HTMLDivElement>) => {
+  const ousideModalClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget) {
       setIsCartOpen(false);
     }
   };
 
+  const viewBag = () => {
+    setIsCartOpen(false)
+    navigate("/cart")
+  }
+
   const navigate = useNavigate();
 
   return (
-    <StyledCartModal onClick={test}>
+    <StyledCartModal onClick={ousideModalClick}>
       <div className="cartContainer">
         <h2>
           My Bag,{" "}
@@ -45,7 +50,7 @@ export const CartModal = () => {
                 color=""
                 border="1px solid"
                 hover="hover1"
-                onClick={() => navigate("/cart")}
+                onClick={() => viewBag()}
               />
               <Button
                 background="green"

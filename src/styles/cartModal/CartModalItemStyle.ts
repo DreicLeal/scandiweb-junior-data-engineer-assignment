@@ -11,7 +11,11 @@ export const StyledCartModalItem = styled.li`
     flex-direction: column;
     text-align: justify;
     justify-content: space-between;
+    height: 195px;
   }
+  .cartPage{
+       height: 288px;
+      }
 
   h3 {
     font: var(--raleway-300-16);
@@ -78,10 +82,28 @@ export const StyledCartModalItem = styled.li`
         font: var(--raleway-500-16);
       }
     }
-    img {
-      object-fit: cover;
-      width: 121px;
-      height: 190px;
+    .imgCarrousselContainer {
+      position: relative;
+      .imgButtons {
+        position: absolute;
+        display: flex;
+        gap: 5px;
+        z-index: 5;
+        bottom: 10px;
+        right: 10px;
+        img {
+          width: 1rem;
+          height: 1rem;
+        }
+      }
+      .currentImg {
+        object-fit: cover;
+        width: 121px;
+        height: 100%;
+      }
+      .cartPageImg{
+        width: 200px;
+      }
     }
   }
 `;
