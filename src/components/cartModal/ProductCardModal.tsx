@@ -6,17 +6,13 @@ import { StyledCartModalItem } from "../../styles/cartModal/CartModalItemStyle";
 
 export const ProductCardModal = (product: IProduct) => {
   const {
-    setChoosedColor,
-    choosedColor,
     currency,
     exchange,
     addToCart,
     removeFromCart,
+    productColorIndex,
+    pickedColor
   } = useContext(ProductContext);
-  const pickedColor = (i: number) => {
-    const color = i;
-    setChoosedColor(color);
-  };
 
   return (
     <StyledCartModalItem key={product.id}>
@@ -45,10 +41,10 @@ export const ProductCardModal = (product: IProduct) => {
           <ul>
             {product?.color.map((color, i) => (
               <li
-                id={choosedColor === i ? "pickedColor" : ""}
+                id={productColorIndex(product.id) === i ? "pickedColor" : ""}
                 className={product.color[i]}
                 key={i}
-                onClick={() => pickedColor(i)}
+                onClick={() => pickedColor(product.id, i)}
               ></li>
             ))}
           </ul>
@@ -74,7 +70,7 @@ export const ProductCardModal = (product: IProduct) => {
             onClick={() => removeFromCart(product)}
           />
         </div>
-        <img src={product.img[`${String(choosedColor)}`][0]} alt="" />
+        <img src={product.img[`${String(productColorIndex(product.id))}`][0]} alt="" />
       </div>
     </StyledCartModalItem>
   );

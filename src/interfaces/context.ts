@@ -1,7 +1,13 @@
 import { ReactNode } from "react";
 import { IProduct } from "../database/databaseInterface";
 
+export interface ChoosedColorsState {
+  [productId: number]: number; 
+}
+
 export interface IProductContext {
+  pickedColor: (productId: number, i: number) => void,
+  productColorIndex: (productId: number) => number,
   removeFromCart: (pickedProduct: IProduct) => void;
   isCartOpen: boolean;
   setIsCartOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -9,8 +15,8 @@ export interface IProductContext {
   cartValue: number;
   addToCart: (pickedProduct: IProduct) => void;
   exchange: () => number;
-  choosedColor: number | undefined;
-  setChoosedColor: React.Dispatch<React.SetStateAction<number | undefined>>;
+  choosedColor:ChoosedColorsState;
+  setChoosedColor: React.Dispatch<React.SetStateAction<ChoosedColorsState>>;
   choosedSize: string | null;
   setChoosedSize: React.Dispatch<React.SetStateAction<string | null>>;
   isMenuOpen: boolean;

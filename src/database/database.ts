@@ -2,7 +2,7 @@ import { IProduct } from "./databaseInterface";
 
 export const products: IProduct[] = [
   {
-    id: "1",
+    id: 1,
     name: "Hat",
     size: ["XS", "S", "M", "L"],
     color: ["white", "black", "red"],
@@ -24,14 +24,14 @@ export const products: IProduct[] = [
       ],
     },
     price: 49.99,
-    quantity:1,
+    quantity: 1,
     stock: 5,
   },
   {
-    id: "2",
+    id: 2,
     name: "Sunglasses",
     size: ["XS", "S", "M", "L"],
-    color: ["1", "2", "3"],
+    color: ["grey", "green", "grey"],
     img: {
       "0": [
         "./src/assets/database/glasses-grey-1.png",
@@ -50,11 +50,37 @@ export const products: IProduct[] = [
       ],
     },
     price: 49.99,
-    quantity:1,
+    quantity: 1,
     stock: 5,
   },
   {
-    id: "3",
+    id: 3,
+    name: "Watchband",
+    size: ["XS", "S", "M", "L"],
+    color: ["white", "grey", "blue"],
+    img: {
+      "0": [
+        "./src/assets/database/white-watchBand-1.png",
+        "./src/assets/database/white-watchBand-2.png",
+        "./src/assets/database/white-watchBand-3.png",
+      ],
+      "1": [
+        "./src/assets/database/grey-watchBand-1.png",
+        "./src/assets/database/grey-watchBand-2.png",
+        "./src/assets/database/grey-watchBand-3.png",
+      ],
+      "2": [
+        "./src/assets/database/blue-watchBand-1.png",
+        "./src/assets/database/blue-watchBand-2.png",
+        "./src/assets/database/blue-watchBand-3.png",
+      ],
+    },
+    price: 49.99,
+    quantity: 1,
+    stock: 5,
+  },
+  {
+    id: 4,
     name: "Watchband",
     size: ["XS", "S", "M", "L"],
     color: ["1", "2", "3"],
@@ -76,11 +102,11 @@ export const products: IProduct[] = [
       ],
     },
     price: 49.99,
-    quantity:1,
+    quantity: 1,
     stock: 5,
   },
   {
-    id: "4",
+    id: 5,
     name: "Watchband",
     size: ["XS", "S", "M", "L"],
     color: ["1", "2", "3"],
@@ -102,11 +128,11 @@ export const products: IProduct[] = [
       ],
     },
     price: 49.99,
-    quantity:1,
+    quantity: 1,
     stock: 5,
   },
   {
-    id: "5",
+    id: 6,
     name: "Watchband",
     size: ["XS", "S", "M", "L"],
     color: ["1", "2", "3"],
@@ -128,33 +154,7 @@ export const products: IProduct[] = [
       ],
     },
     price: 49.99,
-    quantity:1,
-    stock: 5,
-  },
-  {
-    id: "6",
-    name: "Watchband",
-    size: ["XS", "S", "M", "L"],
-    color: ["1", "2", "3"],
-    img: {
-      "0": [
-        "./src/assets/database/white-watchBand-1.png",
-        "./src/assets/database/white-watchBand-2.png",
-        "./src/assets/database/white-watchBand-3.png",
-      ],
-      "1": [
-        "./src/assets/database/grey-watchBand-1.png",
-        "./src/assets/database/grey-watchBand-2.png",
-        "./src/assets/database/grey-watchBand-3.png",
-      ],
-      "2": [
-        "./src/assets/database/blue-watchBand-1.png",
-        "./src/assets/database/blue-watchBand-2.png",
-        "./src/assets/database/blue-watchBand-3.png",
-      ],
-    },
-    price: 49.99,
-    quantity:1,
+    quantity: 1,
     stock: 5,
   },
 ];

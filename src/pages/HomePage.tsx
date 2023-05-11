@@ -10,9 +10,7 @@ export const HomePage = () => {
   return (
     <>
       <StyledProductsContainer>
-        {isCartOpen && 
-        <CartModal />
-        }
+        {isCartOpen && <CartModal />}
         <h2>{siteSection}</h2>
         <ul>{products.map((product) => ProductCard(product))}</ul>
       </StyledProductsContainer>

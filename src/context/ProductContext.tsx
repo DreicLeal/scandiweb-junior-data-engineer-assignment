@@ -1,17 +1,19 @@
 import { createContext, useEffect, useState } from "react";
 import { IProduct } from "../database/databaseInterface";
-import { IProductContext, IProductContextProps } from "../interfaces/context";
+import { ChoosedColorsState, IProductContext, IProductContextProps } from "../interfaces/context";
 
 export const ProductContext = createContext({} as IProductContext);
 
 export const ProductProvider = ({ children }: IProductContextProps) => {
+
+
   const [currency, setCurrency] = useState<string>("$");
   const [cart, setCart] = useState<IProduct[]>([] as IProduct[]);
   const [siteSection, setSiteSection] = useState<string>("WOMEN");
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [choosedSize, setChoosedSize] = useState<string | null>(null);
-  const [choosedColor, setChoosedColor] = useState<number | undefined>(0);
+  const [choosedColor, setChoosedColor] = useState<ChoosedColorsState>({});
   const [cartQuantity, setCartQuantity] = useState<number>(0);
   const [cartValue, setCartValue] = useState<number>(0);
 
@@ -54,6 +56,20 @@ export const ProductProvider = ({ children }: IProductContextProps) => {
     }
   };
 
+  const pickedColor = (productId: number, i: number) => {
+    setChoosedColor((choosedColor) => {
+      const updatedColors = { ...choosedColor };
+      updatedColors[productId] = i;
+      return updatedColors;
+    });
+  };
+
+  const productColorIndex = (productId: number) => {
+    return choosedColor[productId] !== undefined
+    ? choosedColor[productId]
+    : 0;
+  };
+
   useEffect(() => {
     const totalQuantity = cart.reduce((acc, act) => acc + act.quantity, 0);
     setCartQuantity(totalQuantity);
@@ -67,6 +83,8 @@ export const ProductProvider = ({ children }: IProductContextProps) => {
   return (
     <ProductContext.Provider
       value={{
+        pickedColor,
+        productColorIndex,
         removeFromCart,
         isCartOpen,
         setIsCartOpen,

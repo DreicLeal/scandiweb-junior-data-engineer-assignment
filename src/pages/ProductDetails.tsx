@@ -4,24 +4,26 @@ import { StyledCardDetail } from "../styles/CardDetailsStyle";
 import { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../context/ProductContext";
 import { Button } from "../components/Buttons";
+import { CartModal } from "../components/cartModal/CartModal";
 
 export const ProductDetails = () => {
   const { id } = useParams();
   const {
     choosedSize,
     setChoosedSize,
-    choosedColor,
     setChoosedColor,
     currency,
     exchange,
-    addToCart
+    addToCart,
+    isCartOpen,
+    pickedColor,
+    productColorIndex
   } = useContext(ProductContext);
   const [imgIndex, setImgIndex] = useState<number>(0);
-  const productPage = products.find((product) => product.id == id);
+  const productPage = products.find((product) => product.id == +id!);
 
   useEffect(() => {
     setChoosedSize(productPage!.size[1]);
-    setChoosedColor(0);
   }, []);
 
   const pickedSize = (i: number) => {
@@ -29,23 +31,20 @@ export const ProductDetails = () => {
     setChoosedSize(size!);
   };
 
-  const pickedColor = (i: number) => {
-    const color = i;
-    setChoosedColor(color);
-  };
-
   return (
     <StyledCardDetail>
+      {isCartOpen && <CartModal />}
       <div className="imgsContainer">
         <ul>
-          {productPage?.img[`${String(choosedColor)}`].map((img, i) => (
+          {productPage?.img[`${String(productColorIndex(productPage.id))}`].map((img, i) => (
             <li key={i} onClick={() => setImgIndex(i)}>
               <img src={`../${img}`} alt="" />
             </li>
           ))}
         </ul>
-        <img className="mainImage"
-          src={`../${productPage?.img[`${String(choosedColor)}`][imgIndex]}`}
+        <img
+          className="mainImage"
+          src={`../${productPage?.img[`${String(productColorIndex(productPage.id))}`][imgIndex]}`}
           alt=""
         />
       </div>
@@ -70,10 +69,10 @@ export const ProductDetails = () => {
           <ul>
             {productPage?.color.map((color, i) => (
               <li
-                id={choosedColor === i ? "pickedColor" : ""}
+                id={productColorIndex(productPage.id) === i ? "pickedColor" : ""}
                 className={productPage.color[i]}
                 key={i}
-                onClick={() => pickedColor(i)}
+                onClick={() => pickedColor(productPage.id, i)}
               ></li>
             ))}
           </ul>

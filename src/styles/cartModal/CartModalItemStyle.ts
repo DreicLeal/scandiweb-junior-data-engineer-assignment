@@ -56,6 +56,12 @@ export const StyledCartModalItem = styled.li`
   .green {
     background-color: green;
   }
+  .grey {
+    background-color: grey;
+  }
+  .blue {
+    background-color: blue;
+  }
 
   .sizeContainer > div {
     display: flex;

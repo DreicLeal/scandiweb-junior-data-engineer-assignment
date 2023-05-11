@@ -10,8 +10,18 @@ export const StyledNav = styled.header`
     display: flex;
     gap: 2.5rem;
     font: var(--raleway-400-16);
+    height: 100%;
+    align-items: center;
+    justify-content: center;
     li {
       cursor: pointer;
+      height: 100%;
+      padding-top: 15%;
+    }
+    #currentSection{
+      color: var(--green);
+      border-bottom: 1px solid var(--green);
+      transition: 1s;
     }
   }
   .buttons {

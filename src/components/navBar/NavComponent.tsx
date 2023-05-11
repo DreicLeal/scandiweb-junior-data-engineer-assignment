@@ -11,6 +11,7 @@ export const NavBar = () => {
 
   const {
     setSiteSection,
+    siteSection,
     currency,
     isMenuOpen,
     setIsMenuOpen,
@@ -33,7 +34,7 @@ export const NavBar = () => {
     <StyledNav>
       <ul className="sections">
         {sections.map((section) => (
-          <li key={section} onClick={() => setSiteSection(section)}>
+          <li key={section} id={section === siteSection? "currentSection":"" } onClick={() => setSiteSection(section)}>
             {section}
           </li>
         ))}

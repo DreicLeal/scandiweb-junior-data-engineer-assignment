@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledCartModal = styled.div`
   backdrop-filter: blur(2px);
   position: fixed;
+  top:80px;
   left: 0;
   width: 100vw;
   height: 100%;
