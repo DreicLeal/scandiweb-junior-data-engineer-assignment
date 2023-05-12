@@ -15,6 +15,12 @@ body{
   width: 100vw;
   height: 100vh;
 }
+.trace{
+  width: 100%;
+  height: 1px;
+  border-top: 1px solid var(--grey2);
+  margin: 1rem 0;
+}
 
 #root {
   margin: 0 auto;
@@ -25,6 +31,7 @@ body{
   --green: #5ECE7B;
   --grey1: #8D8F9A;
   --grey2: #EEEEEE;
+  --grey2: #E5E5E5;
   --black: #1D1F22;
   --white: #FFFFFF;
   --opacityGrey: rgba(0, 0, 0, 0.73);

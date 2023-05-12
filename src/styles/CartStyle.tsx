@@ -6,12 +6,26 @@ export const StyledCart = styled.div`
     text-align: left;
     font: var(--raleway-700-32);
   }
-  .cartItems{
+  .cartItems {
     overflow-y: auto;
     max-height: 720px;
+    padding-right: 0.5rem;
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--grey);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--green);
+      border-radius: 20px;
+      border: 2px solid transparent;
+    }
   }
   .summary {
-    margin: 2rem 0 .5rem 0;
+    margin: 2rem 0 0.5rem 0;
     display: flex;
     flex-direction: column;
     width: fit-content;

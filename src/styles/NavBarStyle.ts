@@ -5,6 +5,7 @@ export const StyledNav = styled.header`
   justify-content: space-between;
   align-items: center;
   height: 78px;
+  margin-bottom: 80px;
 
   .sections {
     display: flex;
@@ -18,7 +19,7 @@ export const StyledNav = styled.header`
       height: 100%;
       padding-top: 15%;
     }
-    #currentSection{
+    #currentSection {
       color: var(--green);
       border-bottom: 1px solid var(--green);
       transition: 1s;
@@ -48,7 +49,7 @@ export const StyledNav = styled.header`
         background-color: var(--black);
         color: var(--white);
         position: absolute;
-        p{
+        p {
           padding-top: 2px;
           font: var(--roboto-700-14);
         }
