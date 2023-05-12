@@ -1,12 +1,18 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ProductCard } from "../components/ProductCard";
 import { products } from "../database/database";
 import { ProductContext } from "../context/ProductContext";
 import { StyledProductsContainer } from "../styles/ProductsContainerStyle";
 import { CartModal } from "../components/cart/CartModal";
+import ReactGA from "react-ga";
 
 export const HomePage = () => {
   const { siteSection, isCartOpen } = useContext(ProductContext);
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname);
+  }, []);
+
   return (
     <>
       <StyledProductsContainer>
