@@ -44,7 +44,7 @@ export const ProductProvider = ({ children }: IProductContextProps) => {
       if (alreadyOnTheCart) {
         alreadyOnTheCart.quantity++;
         const test = cart.filter(
-          (product) => product.id != alreadyOnTheCart.id
+          (product) => product.id !== alreadyOnTheCart.id
         );
         setCart([...test, alreadyOnTheCart]);
       } else {
@@ -56,23 +56,26 @@ export const ProductProvider = ({ children }: IProductContextProps) => {
 
   const removeFromCart = (pickedProduct: IProduct) => {
     const productToDecrease = cart.find(
-      (product) => product.id == pickedProduct.id
+      (product) => product.id === pickedProduct.id
     );
-    if (productToDecrease) {
-      if (productToDecrease.quantity > 1) {
-        productToDecrease.quantity -= 1;
-        const remainProducts = cart.filter(
-          (product) => product.id != productToDecrease?.id
-        );
-        if (remainProducts) {
-          setCart([...remainProducts, productToDecrease]);
+    if (!productToDecrease) {
+      return;
+    }
+    if (productToDecrease.quantity > 1) {
+      const remainProducts = cart.map((product) => {
+        if (product.id === productToDecrease?.id) {
+          return { ...product, quantity: (product.quantity -= 1) };
         }
-      } else {
-        const remainProducts = cart.filter(
-          (product) => product.id != productToDecrease?.id
-        );
-        remainProducts ? setCart([...remainProducts]) : setCart([]);
-      }
+        return product;
+      });
+
+      setCart(remainProducts);
+    } else {
+      const remainProducts = cart.filter(
+        (product) => product.id !== productToDecrease?.id
+      );
+      console.log(remainProducts)
+      setCart(remainProducts);
     }
   };
 
