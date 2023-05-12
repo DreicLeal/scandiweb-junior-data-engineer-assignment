@@ -63,7 +63,7 @@ export const ProductDetails = () => {
         <div className="colorContainer">
           <p>COLOR:</p>
           <ul>
-            {productPage?.color.map((color, i) => (
+            {productPage?.color.map((_color, i) => (
               <li
                 id={
                   productColorIndex(productPage.id) === i ? "pickedColor" : ""
