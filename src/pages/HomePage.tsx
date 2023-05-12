@@ -4,14 +4,15 @@ import { products } from "../database/database";
 import { ProductContext } from "../context/ProductContext";
 import { StyledProductsContainer } from "../styles/ProductsContainerStyle";
 import { CartModal } from "../components/cart/CartModal";
-import ReactGA from "react-ga";
+import TagManager from "react-gtm-module";
+// import ReactGA from "react-ga";
 
 export const HomePage = () => {
   const { siteSection, isCartOpen } = useContext(ProductContext);
 
-  useEffect(() => {
-    ReactGA.pageview(window.location.pathname);
-  }, []);
+  // useEffect(() => {
+  //   TagManager.dataLayer()
+  // }, []);
 
   return (
     <>
