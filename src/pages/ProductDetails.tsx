@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { products } from "../database/database";
 import { StyledCardDetail } from "../styles/CardDetailsStyle";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { ProductContext } from "../context/ProductContext";
 import { Button } from "../components/Buttons";
 import { CartModal } from "../components/cart/CartModal";

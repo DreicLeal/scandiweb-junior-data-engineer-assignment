@@ -64,7 +64,7 @@ export const ProductCardModal = (product: IProduct) => {
         <div className="colorContainer">
           <p className={cartPage?"subtitlesCartPage":"subtitlesCartModal"}>{cartPage ? "COLOR:" : "Color:"}</p>
           <ul>
-            {product?.color.map((color, i) => (
+            {product?.color.map((_color, i) => (
               <li
                 id={productColorIndex(product.id) === i ? "pickedColor" : ""}
                 className={`${product.color[i]} ${

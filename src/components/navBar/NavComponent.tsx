@@ -1,10 +1,10 @@
-import { useContext } from "react";
-import { DropDown } from "./DropDown";
+import { useContext } from "react"
 import { StyledNav } from "../../styles/NavBarStyle";
 import logo from "../../assets/logo.svg";
 import cartIcon from "../../assets/cartIcon.svg";
 import { ProductContext } from "../../context/ProductContext";
 import { useNavigate } from "react-router-dom";
+import { DropDown } from "./dropDown";
 
 export const NavBar = () => {
   const sections = ["WOMEN", "MEN", "KIDS"];
