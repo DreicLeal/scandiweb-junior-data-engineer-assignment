@@ -23,6 +23,22 @@ export const StyledCardHome = styled.div`
     width: 52px;
     height: 52px;
     cursor: pointer;
+    z-index: 1;
+  }
+  .imgContainer {
+    position: relative;
+    .outOfStock {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: var(--white);
+      opacity: 0.5;
+      color: var(--grey1);
+      font: var(--raleway-400-24);
+    }
   }
   .productCardInfo {
     align-items: flex-start;

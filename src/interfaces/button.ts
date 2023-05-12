@@ -6,4 +6,5 @@ export interface IButton {
   border?: string;
   onClick?: () => void;
   text?: string;
+  id?: string;
 }

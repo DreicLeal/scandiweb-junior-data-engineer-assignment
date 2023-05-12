@@ -23,6 +23,10 @@ export const StyledCardDetail = styled.div`
         }
       }
     }
+    .mainImage{
+    width: 450px;
+    height: 420px;
+}
   }
   .productInfo{
     display: flex;
@@ -81,6 +85,15 @@ export const StyledCardDetail = styled.div`
       }
       .red {
         background-color: red;
+      }
+      .green {
+        background-color: green;
+      }
+      .grey {
+        background-color: grey;
+      }
+      .blue {
+        background-color: blue;
       }
     }
   }

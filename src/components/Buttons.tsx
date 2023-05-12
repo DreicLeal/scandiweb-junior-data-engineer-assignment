@@ -8,6 +8,7 @@ export const Button = ({
   color,
   border,
   onClick,
+  id,
   text,
 }: IButton) => {
   return (
@@ -18,6 +19,7 @@ export const Button = ({
       color={color}
       border={border}
       onClick={onClick}
+      id={id}
     >
       {text}
     </StyledButton>
