@@ -3,7 +3,7 @@ import { ProductCard } from "../components/ProductCard";
 import { products } from "../database/database";
 import { ProductContext } from "../context/ProductContext";
 import { StyledProductsContainer } from "../styles/ProductsContainerStyle";
-import { CartModal } from "../components/cartModal/CartModal";
+import { CartModal } from "../components/cart/CartModal";
 
 export const HomePage = () => {
   const { siteSection, isCartOpen } = useContext(ProductContext);

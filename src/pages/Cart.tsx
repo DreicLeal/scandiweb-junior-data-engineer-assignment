@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
-import { ProductCardModal } from "../components/cartModal/ProductCardModal";
+import { ProductCardModal } from "../components/cart/ProductCardCart";
 import { StyledCart } from "../styles/CartStyle";
 import { Button } from "../components/Buttons";
 
 export const Cart = () => {
-  const { currency, cartValue, cartQuantity, cart } =
+  const { currency, cartValue, cartQuantity, cart, order } =
     useContext(ProductContext);
   return (
     <StyledCart>
@@ -27,12 +27,20 @@ export const Cart = () => {
         </div>
         <div className="flex">
           <p className="title">Total:</p>
-          <p className="info"> 
-            { currency}
+          <p className="info">
+            {currency}
             {cartValue.toFixed(2)}
           </p>
         </div>
-        <Button size="2"text="ORDER" background="green" color="white" border="none" hover="hover1"/>
+        <Button
+          onClick={() => order()}
+          size="2"
+          text="ORDER"
+          background="green"
+          color="white"
+          border="none"
+          hover="hover1"
+        />
       </div>
     </StyledCart>
   );

@@ -1,5 +1,6 @@
 export interface IProduct {
   id: number;
+  brand: string;
   name: string;
   size: string[];
   color: string[];
@@ -7,6 +8,6 @@ export interface IProduct {
     [key: string]: string[];
   };
   price: number;
-  quantity:number;
+  quantity: number;
   stock: number;
 }

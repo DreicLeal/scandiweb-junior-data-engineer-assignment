@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { IProduct } from "../../database/databaseInterface";
 import { ProductContext } from "../../context/ProductContext";
 import { Button } from "../Buttons";
-import { StyledCartModalItem } from "../../styles/cartModal/CartModalItemStyle";
+import { StyledCartItem } from "../../styles/cartModal/CartItemStyle";
 import plus from "../../assets/plus.svg";
 import minus from "../../assets/minus.svg";
 export const ProductCardModal = (product: IProduct) => {
@@ -13,6 +13,8 @@ export const ProductCardModal = (product: IProduct) => {
     removeFromCart,
     productColorIndex,
     pickedColor,
+    productSizeIndex,
+    pickedSize,
   } = useContext(ProductContext);
   const cartPage = window.location.pathname === "/cart";
   const [imgIndex, setImgIndex] = useState(0);
@@ -30,35 +32,44 @@ export const ProductCardModal = (product: IProduct) => {
       setImgIndex(imgIndex - 1);
     }
   };
+
   return (
-    <StyledCartModalItem key={product.id}>
+    <>
+    {cartPage && <div className="trace"></div>}
+    <StyledCartItem key={product.id}>
       <div className={`infoContainer ${cartPage && "cartPage"}`}>
-        <h3>{product.name}</h3>
+        <h3 className={cartPage? "brandCart": "brandModal"}>{product.brand}</h3>
+        <h3 className={cartPage? "nameCart": "nameModal"}>{product.name}</h3>
         <p className="price">
           {currency}
           {(product.price * exchange()).toFixed(2)}
         </p>
         <div className="sizeContainer">
-          <p>{cartPage ? "SIZE:" : "Size:"}</p>
+          <p className={cartPage?"subtitlesCartPage":"subtitlesCartModal"}>{cartPage ? "SIZE:" : "Size:"}</p>
           <div>
-            {product.size.map((size) => (
+            {product.size.map((size, i) => (
               <Button
+                key={i}
                 text={size}
+                id={productSizeIndex(product.id) === i ? "pickedSize" : ""}
                 size={cartPage ? "3" : "6"}
                 border="1px solid black"
                 background="none"
                 hover="hover1"
+                onClick={() => pickedSize(product.id, i)}
               />
             ))}
           </div>
         </div>
         <div className="colorContainer">
-          <p>{cartPage ? "COLOR:" : "Color:"}</p>
+          <p className={cartPage?"subtitlesCartPage":"subtitlesCartModal"}>{cartPage ? "COLOR:" : "Color:"}</p>
           <ul>
             {product?.color.map((color, i) => (
               <li
                 id={productColorIndex(product.id) === i ? "pickedColor" : ""}
-                className={product.color[i]}
+                className={`${product.color[i]} ${
+                  cartPage ? "cartColorSquare" : "cartModalSquare"
+                }`}
                 key={i}
                 onClick={() => pickedColor(product.id, i)}
               ></li>
@@ -102,6 +113,7 @@ export const ProductCardModal = (product: IProduct) => {
           />
         </div>
       </div>
-    </StyledCartModalItem>
+    </StyledCartItem>
+    </>
   );
 };
