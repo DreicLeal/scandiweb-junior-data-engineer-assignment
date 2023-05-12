@@ -11,7 +11,9 @@ export const Cart = () => {
     <StyledCart>
       <h2>CART</h2>
       <ul className="cartItems">
-        {cart.map((product) => ProductCardModal(product))}
+        {cart.map((product) => (
+          <ProductCardModal key={product.id} product={product} />
+        ))}
       </ul>
       <div className="summary">
         <div className="flex">

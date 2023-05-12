@@ -5,7 +5,7 @@ import { StyledCardHome } from "../styles/CardHomeStyle";
 import greenIcon from "../assets/greenIcon.svg";
 import { useNavigate } from "react-router-dom";
 
-export const ProductCard = (product: IProduct) => {
+export const ProductCard = ({product}: {product:IProduct}) => {
   const { currency, exchange, addToCart } = useContext(ProductContext);
   const navigate = useNavigate();
   return (

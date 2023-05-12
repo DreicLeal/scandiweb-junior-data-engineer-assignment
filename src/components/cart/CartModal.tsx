@@ -3,6 +3,7 @@ import { StyledCartModal } from "../../styles/cartModal/CartModalStyle";
 import { Button } from "../Buttons";
 import { ProductContext } from "../../context/ProductContext";
 import { ProductCardModal } from "./ProductCardCart";
+
 import { useNavigate } from "react-router-dom";
 
 export const CartModal = () => {
@@ -34,7 +35,9 @@ export const CartModal = () => {
         <>
           {cart.length > 0 ? (
             <ul className="cartItems">
-              {cart.map((product) => ProductCardModal(product))}
+              {cart.map((product) => (
+                <ProductCardModal key={product.id} product={product} />
+              ))}
             </ul>
           ) : (
             <h3>Cart Empty</h3>
