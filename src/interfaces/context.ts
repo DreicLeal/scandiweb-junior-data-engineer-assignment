@@ -9,6 +9,7 @@ export interface ChoosedSizeState {
 }
 
 export interface IProductContext {
+  currencyCode: string;
   order: () => void;
   pickedSize: (productId: number, i: number) => void;
   productSizeIndex: (productId: number) => number;

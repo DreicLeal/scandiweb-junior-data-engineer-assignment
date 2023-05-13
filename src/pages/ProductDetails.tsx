@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom";
 import { products } from "../database/database";
 import { StyledCardDetail } from "../styles/CardDetailsStyle";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../context/ProductContext";
 import { Button } from "../components/Buttons";
 import { CartModal } from "../components/cart/CartModal";
+import TagManager from "react-gtm-module";
 
 export const ProductDetails = () => {
   const { id } = useParams();
@@ -20,6 +21,25 @@ export const ProductDetails = () => {
   } = useContext(ProductContext);
   const [imgIndex, setImgIndex] = useState<number>(0);
   const productPage = products.find((product) => product.id == +id!);
+
+  useEffect(() => {
+    TagManager.dataLayer({
+      dataLayer: {
+        event: "detail",
+        ecommerce: {
+          detail: {
+            products: [
+              {
+                id: productPage?.id,
+                name: productPage?.name,
+                price: productPage?.price,
+              },
+            ],
+          },
+        },
+      },
+    });
+  }, []);
 
   return (
     <StyledCardDetail>
