@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ProductCard } from "../components/ProductCard";
 import { products } from "../database/database";
 import { ProductContext } from "../context/ProductContext";
@@ -17,15 +17,17 @@ export const HomePage = () => {
   });
 
   const { siteSection, isCartOpen, currencyCode } = useContext(ProductContext);
-  TagManager.dataLayer({
-    dataLayer: {
-      event: "impressions",
-      ecommerce: {
-        currencyCode: currencyCode,
-        impressions: [...tagInfo],
+  useEffect(() => {
+    TagManager.dataLayer({
+      dataLayer: {
+        event: "impressions",
+        ecommerce: {
+          currencyCode: currencyCode,
+          impressions: [...tagInfo],
+        },
       },
-    },
-  });
+    });
+  }, []);
   return (
     <StyledProductsContainer>
       {isCartOpen && <CartModal />}
