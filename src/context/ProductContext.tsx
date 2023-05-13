@@ -8,11 +8,13 @@ import {
 } from "../interfaces/context";
 import { products } from "../database/database";
 import { useNavigate } from "react-router-dom";
+import TagManager from "react-gtm-module";
 
 export const ProductContext = createContext({} as IProductContext);
 
 export const ProductProvider = ({ children }: IProductContextProps) => {
   const [currency, setCurrency] = useState<string>("$");
+  const [currencyCode, setCurrencyCode] = useState<string>("USD");
   const [cart, setCart] = useState<IProduct[]>([] as IProduct[]);
   const [siteSection, setSiteSection] = useState<string>("WOMEN");
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -22,20 +24,33 @@ export const ProductProvider = ({ children }: IProductContextProps) => {
   const [cartQuantity, setCartQuantity] = useState<number>(0);
   const [cartValue, setCartValue] = useState<number>(0);
 
+  const tagInfo = cart.map((product) => {
+    return {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      quantity: product.quantity,
+      dimension1: product.id,
+      dimension2: product.name,
+    };
+  });
+
   const navigate = useNavigate();
 
   const exchange = () => {
     let multiplier: number;
     if (currency == "€") {
+      setCurrencyCode("EUR");
       multiplier = 0.91;
     } else if (currency == "¥") {
+      setCurrencyCode("JPY");
       multiplier = 134.95;
     } else {
+      setCurrencyCode("USD");
       multiplier = 1;
     }
     return multiplier;
   };
-
   const addToCart = (pickedProduct: IProduct) => {
     const alreadyOnTheCart = cart.find(
       (cartProduct) => cartProduct.id == pickedProduct.id
@@ -52,6 +67,18 @@ export const ProductProvider = ({ children }: IProductContextProps) => {
         setCart([...cart, pickedProduct]);
       }
     }
+
+    TagManager.dataLayer({
+      dataLayer: {
+        event: "addToCart",
+        ecommerce: {
+          currencyCode: currencyCode,
+          add: {
+            products: [...tagInfo],
+          },
+        },
+      },
+    });
   };
 
   const removeFromCart = (pickedProduct: IProduct) => {
@@ -74,9 +101,21 @@ export const ProductProvider = ({ children }: IProductContextProps) => {
       const remainProducts = cart.filter(
         (product) => product.id !== productToDecrease?.id
       );
-      console.log(remainProducts)
+      console.log(remainProducts);
       setCart(remainProducts);
     }
+
+    TagManager.dataLayer({
+      dataLayer: {
+        event: "removeFromCart",
+        ecommerce: {
+          currencyCode: currencyCode,
+          add: {
+            products: [...tagInfo],
+          },
+        },
+      },
+    });
   };
 
   const pickedColor = (productId: number, i: number) => {
@@ -113,6 +152,22 @@ export const ProductProvider = ({ children }: IProductContextProps) => {
   }, [cart, currency]);
 
   const order = () => {
+    TagManager.dataLayer({
+      dataLayer: {
+        event: "checkout",
+        ecommerce: {
+          currencyCode: currencyCode,
+          checkout: {
+            actionField: {
+              step: 1,
+              option: "CartPage",
+              products: [...tagInfo],
+            },
+          },
+        },
+      },
+    });
+
     cart.forEach((cartProduct) =>
       products.map((stockProduct) => {
         stockProduct.id == cartProduct.id &&
@@ -126,6 +181,7 @@ export const ProductProvider = ({ children }: IProductContextProps) => {
   return (
     <ProductContext.Provider
       value={{
+        currencyCode,
         order,
         pickedSize,
         productSizeIndex,
