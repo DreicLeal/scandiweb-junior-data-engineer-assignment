@@ -58,10 +58,10 @@ export const ProductProvider = ({ children }: IProductContextProps) => {
     if (pickedProduct.stock > pickedProduct.quantity) {
       if (alreadyOnTheCart) {
         alreadyOnTheCart.quantity++;
-        const test = cart.filter(
+        const currentProducts = cart.filter(
           (product) => product.id !== alreadyOnTheCart.id
         );
-        setCart([...test, alreadyOnTheCart]);
+        setCart([...currentProducts, alreadyOnTheCart]);
       } else {
         pickedProduct.quantity = 1;
         setCart([...cart, pickedProduct]);

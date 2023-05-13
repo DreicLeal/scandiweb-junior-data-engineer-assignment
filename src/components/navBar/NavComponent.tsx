@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext } from "react";
 import { StyledNav } from "../../styles/NavBarStyle";
 import logo from "../../assets/logo.svg";
 import cartIcon from "../../assets/cartIcon.svg";
@@ -34,7 +34,11 @@ export const NavBar = () => {
     <StyledNav>
       <ul className="sections">
         {sections.map((section) => (
-          <li key={section} id={section === siteSection? "currentSection":"" } onClick={() => setSiteSection(section)}>
+          <li
+            key={section}
+            id={section === siteSection ? "currentSection" : ""}
+            onClick={() => setSiteSection(section)}
+          >
             {section}
           </li>
         ))}

@@ -27,15 +27,18 @@ export const HomePage = () => {
     },
   });
   return (
-      <StyledProductsContainer>
-        {isCartOpen && <CartModal />}
-        <h2>{siteSection}</h2>
+    <StyledProductsContainer>
+      {isCartOpen && <CartModal />}
+      <h2>{siteSection}</h2>
+      {siteSection === "WOMEN" ? (
         <ul>
           {products.map((product) => (
             <ProductCard product={product} />
           ))}
         </ul>
-      </StyledProductsContainer>
-
+      ) : (
+        <h2>Section not implemented yet.</h2>
+      )}
+    </StyledProductsContainer>
   );
 };
