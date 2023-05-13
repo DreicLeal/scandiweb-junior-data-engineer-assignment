@@ -8,7 +8,7 @@ export const StyledDropDown = styled.ul`
   top: 50px;
   right: 57px;
   box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
-  
+
   li {
     padding: 1rem 1.5rem;
     transition: 0.5s;

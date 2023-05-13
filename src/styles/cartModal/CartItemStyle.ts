@@ -18,7 +18,8 @@ export const StyledCartItem = styled.li`
     height: 288px;
   }
 
-  .brandModal, .nameModal {
+  .brandModal,
+  .nameModal {
     font: var(--raleway-300-16);
   }
   .brandCart {
@@ -34,11 +35,11 @@ export const StyledCartItem = styled.li`
     background-color: var(--black);
     color: var(--white);
   }
-  .subtitlesCartModal{
+  .subtitlesCartModal {
     margin-bottom: 5px;
     font: var(--raleway-400-14);
   }
-  .subtitlesCartPage{
+  .subtitlesCartPage {
     margin-bottom: 5px;
     font: var(--roboto-cond-700-18);
   }
@@ -85,6 +86,12 @@ export const StyledCartItem = styled.li`
   }
   .blue {
     background-color: blue;
+  }
+  .brown {
+    background-color: brown;
+  }
+  .yellow {
+    background-color: yellow;
   }
 
   .sizeContainer > div {

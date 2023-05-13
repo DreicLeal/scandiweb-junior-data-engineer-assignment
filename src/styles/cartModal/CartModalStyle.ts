@@ -32,18 +32,18 @@ export const StyledCartModal = styled.div`
       }
     }
     ::-webkit-scrollbar {
-    width: 8px;
-  }
+      width: 8px;
+    }
 
-  ::-webkit-scrollbar-track {
-    background: var(--grey);
-  }
+    ::-webkit-scrollbar-track {
+      background: var(--grey);
+    }
 
-  ::-webkit-scrollbar-thumb {
-    background-color: var(--green);
-    border-radius: 20px;
-    border: 2px solid transparent;
-  }
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--green);
+      border-radius: 20px;
+      border: 2px solid transparent;
+    }
     h2 {
       margin-bottom: 2rem;
       text-align: justify;
