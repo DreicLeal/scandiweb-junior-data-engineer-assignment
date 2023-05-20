@@ -9,7 +9,7 @@ export const products: IProduct[] = [
     color: ["grey", "green", "red"],
     img: {
       "0": [
-        "../src/assets/database/grey-sweater-1.png" || "https://thumbs2.imgbox.com/aa/6f/Gf9aProg_b.png",
+        "https://images2.imgbox.com/aa/6f/Gf9aProg_o.png",
         "../src/assets/database/grey-sweater-2.png",
         "../src/assets/database/grey-sweater-3.png",
       ],
@@ -36,7 +36,7 @@ export const products: IProduct[] = [
     color: ["white", "red", "blue"],
     img: {
       "0": [
-        "../src/assets/database/white-shirt-1.png" || "https://thumbs2.imgbox.com/a3/e8/5xRecnrh_b.png",
+        "https://images2.imgbox.com/a3/e8/5xRecnrh_o.png",
         "../src/assets/database/white-shirt-2.png",
         "../src/assets/database/white-shirt-3.png",
       ],
@@ -63,7 +63,7 @@ export const products: IProduct[] = [
     color: ["green", "red", "yellow"],
     img: {
       "0": [
-        "../src/assets/database/green-cardigan-1.png" || "https://images2.imgbox.com/bb/60/EAtuSaam_o.png",
+        "https://images2.imgbox.com/bb/60/EAtuSaam_o.png",
         "../src/assets/database/green-cardigan-2.png",
         "../src/assets/database/green-cardigan-3.png",
       ],
