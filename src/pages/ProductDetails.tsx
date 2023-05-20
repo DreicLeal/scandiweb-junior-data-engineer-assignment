@@ -49,14 +49,14 @@ export const ProductDetails = () => {
           {productPage?.img[`${String(productColorIndex(productPage.id))}`].map(
             (img, i) => (
               <li key={i} onClick={() => setImgIndex(i)}>
-                <img src={`../${img}`} alt="" />
+                <img src={`${img}`} alt="" />
               </li>
             )
           )}
         </ul>
         <img
           className="mainImage"
-          src={`../${
+          src={`${
             productPage?.img[`${String(productColorIndex(productPage.id))}`][
               imgIndex
             ]

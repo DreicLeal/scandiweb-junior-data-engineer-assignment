@@ -17,6 +17,7 @@ export const StyledCardDetail = styled.div`
       flex-direction: column;
       gap: 1rem;
       li {
+        cursor: pointer;
         img {
           max-width: 88px;
           max-height: 88px;
